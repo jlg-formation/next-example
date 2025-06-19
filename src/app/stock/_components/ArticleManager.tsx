@@ -5,15 +5,18 @@ import { useState } from "react";
 
 export default function ArticleManager() {
   const [errorMsg, setErrorMsg] = useState("");
+  const [selectedArticles, setselectedArticles] = useState(new Set());
   return (
     <div>
-      <nav>
-        <button>Refresh</button>
-        <Link href="./create">Ajouter</Link>
-        <button>Supprimer</button>
+      <nav className="flex gap-1">
+        <button className="btn">Refresh</button>
+        <Link href="./create" className="btn">
+          Ajouter
+        </Link>
+        <button className="btn">Supprimer</button>
       </nav>
       <div className="h-8 font-bold flex items-center">{errorMsg}</div>
-      <table>
+      <table className="table">
         <thead>
           <tr>
             <th className="name">Nom</th>

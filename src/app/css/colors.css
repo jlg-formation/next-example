@@ -1,0 +1,43 @@
+:root {
+  --color-jlg: hsl(0, 0%, 100%);
+  --color-jlg-50: hsl(0, 0%, 95%);
+  --color-jlg-100: hsl(0, 0%, 90%);
+  --color-jlg-200: hsl(0, 0%, 80%);
+  --color-jlg-300: hsl(0, 0%, 70%);
+  --color-jlg-400: hsl(0, 0%, 60%);
+  --color-jlg-500: hsl(0, 0%, 50%);
+  --color-jlg-600: hsl(0, 0%, 40%);
+  --color-jlg-700: hsl(0, 0%, 30%);
+  --color-jlg-800: hsl(0, 0%, 20%);
+  --color-jlg-900: hsl(0, 0%, 10%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-jlg: hsl(0, 0%, 0%);
+    --color-jlg-50: hsl(0, 0%, 10%);
+    --color-jlg-100: hsl(0, 0%, 20%);
+    --color-jlg-200: hsl(0, 0%, 30%);
+    --color-jlg-300: hsl(0, 0%, 35%);
+    --color-jlg-400: hsl(0, 0%, 40%);
+    --color-jlg-500: hsl(0, 0%, 45%);
+    --color-jlg-600: hsl(0, 0%, 50%);
+    --color-jlg-700: hsl(0, 0%, 60%);
+    --color-jlg-800: hsl(0, 0%, 70%);
+    --color-jlg-900: hsl(0, 0%, 80%);
+  }
+}
+
+@theme {
+  --color-jlg: var(--color-jlg);
+  --color-jlg-50: var(--color-jlg-50);
+  --color-jlg-100: var(--color-jlg-100);
+  --color-jlg-200: var(--color-jlg-200);
+  --color-jlg-300: var(--color-jlg-300);
+  --color-jlg-400: var(--color-jlg-400);
+  --color-jlg-500: var(--color-jlg-500);
+  --color-jlg-600: var(--color-jlg-600);
+  --color-jlg-700: var(--color-jlg-700);
+  --color-jlg-800: var(--color-jlg-800);
+  --color-jlg-900: var(--color-jlg-900);
+}

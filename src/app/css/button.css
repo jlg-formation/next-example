@@ -1,0 +1,14 @@
+@utility btn {
+  @apply cursor-pointer;
+  @apply px-4 py-2 border border-jlg-50 bg-jlg-50 rounded;
+  @apply hover:bg-jlg-100 hover:border-jlg-100;
+  @apply active:bg-jlg-200 active:border-jlg-200;
+  @apply inline-flex items-center justify-between gap-2;
+}
+
+@utility btn-primary {
+  @apply text-jlg-50;
+  @apply border-jlg-900 bg-jlg-900;
+  @apply hover:bg-jlg-800 hover:border-jlg-800;
+  @apply active:bg-jlg-700 active:border-jlg-700;
+}
