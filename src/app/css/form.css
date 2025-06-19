@@ -1,0 +1,15 @@
+@utility form {
+  @apply flex flex-col w-full max-w-sm;
+
+  label {
+    @apply flex flex-col;
+
+    input {
+      @apply border-2 px-4 py-2 rounded border-jlg-300;
+    }
+
+    .error {
+      @apply h-6 font-bold flex;
+    }
+  }
+}
