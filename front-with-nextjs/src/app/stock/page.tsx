@@ -1,13 +1,5 @@
-import { Article } from "@/interfaces/Article";
+import { getArticles } from "@/utils/api";
 import ArticleManager from "./_components/ArticleManager";
-
-const url = "http://localhost:3333/api/articles";
-
-const getArticles = async () => {
-  const response = await fetch(url);
-  const articles: Article[] = await response.json();
-  return articles;
-};
 
 export default async function Stock() {
   return (

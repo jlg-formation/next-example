@@ -1,6 +1,7 @@
 "use client";
 
 import { Article } from "@/interfaces/Article";
+import { getArticles } from "@/utils/api";
 import {
   ArrowPathIcon,
   PlusIcon,
@@ -17,13 +18,18 @@ export default function ArticleManager({
 }) {
   const [errorMsg] = useState("");
   const [articles, setArticles] = useState(initialArticles);
-  console.log("setArticles: ", setArticles);
 
   const pathname = usePathname();
+
+  const handleClick = async () => {
+    const articles = await getArticles();
+    setArticles(articles);
+  };
+
   return (
     <div>
       <nav className="flex gap-1">
-        <button className="btn">
+        <button className="btn" onClick={handleClick}>
           <ArrowPathIcon className="size-6" />
         </button>
         <Link href={pathname + "/create"} className="btn">
