@@ -8,5 +8,15 @@
   },
   "peerDependencies": {
     "typescript": "^5"
-  }
+  },
+  "dependencies": {
+    "@types/express": "^5.0.3",
+    "@types/serve-index": "^1.9.4",
+    "express": "^5.1.0",
+    "serve-index": "^1.9.1"
+  },
+  "scripts": {
+    "dev": "bun src/server.ts"
+  },
+  "packageManager": "bun@1.2.16"
 }
