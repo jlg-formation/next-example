@@ -2,7 +2,7 @@ import { PlusIcon } from "@heroicons/react/24/solid";
 
 export default function StockCreate() {
   return (
-    <main className="w-full max-w-3xl mx-auto flex flex-col items-center">
+    <main className="main">
       <h1 className="title">Ajout d'un article</h1>
       <form className="form">
         <label>
@@ -20,7 +20,7 @@ export default function StockCreate() {
           <input type="number" />
           <span className="error"></span>
         </label>
-        <div className="h-12"></div>
+        <div className="h-8"></div>
         <div className=" flex flex-col">
           <button className="btn btn-primary">
             <PlusIcon className="size-6" />

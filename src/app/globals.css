@@ -12,5 +12,9 @@ body {
 }
 
 @utility title {
-  @apply font-bold text-center my-8 text-3xl;
+  @apply font-bold text-center my-6 text-3xl;
+}
+
+@utility main {
+  @apply w-full max-w-3xl mx-auto flex flex-col items-center p-2;
 }

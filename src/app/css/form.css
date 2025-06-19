@@ -1,5 +1,5 @@
 @utility form {
-  @apply flex flex-col w-full max-w-sm;
+  @apply flex flex-col w-full max-w-sm pb-4;
 
   label {
     @apply flex flex-col;

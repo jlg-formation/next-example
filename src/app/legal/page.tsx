@@ -1,6 +1,6 @@
 export default function Legal() {
   return (
-    <main className="w-full max-w-3xl mx-auto">
+    <main className="main">
       <h1 className="title">Mentions Légales</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae,
