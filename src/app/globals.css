@@ -10,3 +10,7 @@ body {
   background: var(--color-jlg);
   color: var(--color-jlg-900);
 }
+
+@utility title {
+  @apply font-bold text-center my-8 text-3xl;
+}
