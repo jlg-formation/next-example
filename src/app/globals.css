@@ -20,13 +20,13 @@
     --color-jlg-50: hsl(0, 0%, 10%);
     --color-jlg-100: hsl(0, 0%, 20%);
     --color-jlg-200: hsl(0, 0%, 30%);
-    --color-jlg-300: hsl(0, 0%, 40%);
-    --color-jlg-400: hsl(0, 0%, 50%);
-    --color-jlg-500: hsl(0, 0%, 60%);
-    --color-jlg-600: hsl(0, 0%, 70%);
-    --color-jlg-700: hsl(0, 0%, 80%);
-    --color-jlg-800: hsl(0, 0%, 90%);
-    --color-jlg-900: hsl(0, 0%, 100%);
+    --color-jlg-300: hsl(0, 0%, 35%);
+    --color-jlg-400: hsl(0, 0%, 40%);
+    --color-jlg-500: hsl(0, 0%, 45%);
+    --color-jlg-600: hsl(0, 0%, 50%);
+    --color-jlg-700: hsl(0, 0%, 60%);
+    --color-jlg-800: hsl(0, 0%, 70%);
+    --color-jlg-900: hsl(0, 0%, 80%);
   }
 }
 
@@ -42,6 +42,20 @@
   --color-jlg-700: var(--color-jlg-700);
   --color-jlg-800: var(--color-jlg-800);
   --color-jlg-900: var(--color-jlg-900);
+}
+
+@utility btn {
+  @apply px-4 py-2 border border-jlg-50 bg-jlg-50 rounded;
+  @apply hover:bg-jlg-100 hover:border-jlg-100;
+  @apply active:bg-jlg-200 active:border-jlg-200;
+  @apply inline-flex items-center justify-between gap-2;
+}
+
+@utility btn-primary {
+  @apply text-jlg-50;
+  @apply border-jlg-900 bg-jlg-900;
+  @apply hover:bg-jlg-800 hover:border-jlg-800;
+  @apply active:bg-jlg-700 active:border-jlg-700;
 }
 
 body {

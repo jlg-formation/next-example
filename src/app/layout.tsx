@@ -38,7 +38,7 @@ export default function RootLayout({
               <span className="font-bold text-xl">Gestion Stock</span>
             </Link>
           </header>
-          <div className="flex-grow">{children}</div>
+          <div className="flex flex-col flex-grow">{children}</div>
           <footer className="flex items-center bg-jlg-50 h-12 justify-center">
             <Link href="/legal" className="hover:underline">
               Mentions Légales
