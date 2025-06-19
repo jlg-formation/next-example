@@ -10,8 +10,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-export default function ArticleManager({ articles }: { articles: Article[] }) {
+export default function ArticleManager({
+  initialArticles,
+}: {
+  initialArticles: Article[];
+}) {
   const [errorMsg] = useState("");
+  const [articles, setArticles] = useState(initialArticles);
+  console.log("setArticles: ", setArticles);
 
   const pathname = usePathname();
   return (
