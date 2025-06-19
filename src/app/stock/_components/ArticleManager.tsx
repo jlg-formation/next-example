@@ -1,19 +1,31 @@
 "use client";
 
+import {
+  ArrowPathIcon,
+  PlusIcon,
+  TrashIcon,
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 export default function ArticleManager() {
   const [errorMsg, setErrorMsg] = useState("");
   const [selectedArticles, setselectedArticles] = useState(new Set());
+
+  const pathname = usePathname();
   return (
     <div>
       <nav className="flex gap-1">
-        <button className="btn">Refresh</button>
-        <Link href="./create" className="btn">
-          Ajouter
+        <button className="btn">
+          <ArrowPathIcon className="size-6" />
+        </button>
+        <Link href={pathname + "/create"} className="btn">
+          <PlusIcon className="size-6" />
         </Link>
-        <button className="btn">Supprimer</button>
+        <button className="btn">
+          <TrashIcon className="size-6" />
+        </button>
       </nav>
       <div className="h-8 font-bold flex items-center">{errorMsg}</div>
       <table className="table">
