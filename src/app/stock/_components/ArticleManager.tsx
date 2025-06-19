@@ -10,15 +10,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-const articleList: Article[] = [
-  { id: "a1", name: "Tournevis", price: 2.34, qty: 123 },
-  { id: "a2", name: "Pelle", price: 5, qty: 46 },
-];
-
-export default function ArticleManager() {
+export default function ArticleManager({ articles }: { articles: Article[] }) {
   const [errorMsg] = useState("");
-  // const [selectedArticles, setselectedArticles] = useState(new Set());
-  const [articles] = useState(articleList);
 
   const pathname = usePathname();
   return (
