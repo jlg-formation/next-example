@@ -16,7 +16,7 @@
     "serve-index": "^1.9.1"
   },
   "scripts": {
-    "dev": "bun src/server.ts"
+    "dev": "bun --watch src/server.ts"
   },
   "packageManager": "bun@1.2.16"
 }

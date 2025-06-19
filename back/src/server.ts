@@ -5,7 +5,7 @@ import serveIndex from "serve-index";
 import api from "./api";
 
 const app = express();
-const port = +(process.env.GSTOCK_PORT || 3000);
+const port = +(process.env.GSTOCK_PORT || 3333);
 const publicDir = "../front/dist";
 
 app.use((req, res, next) => {
