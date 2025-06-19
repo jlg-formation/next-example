@@ -1,5 +1,6 @@
 "use client";
 
+import AsyncButton from "@/components/AsyncButton";
 import { Article } from "@/interfaces/Article";
 import { getArticles } from "@/utils/api";
 import {
@@ -29,9 +30,10 @@ export default function ArticleManager({
   return (
     <div>
       <nav className="flex gap-1">
-        <button className="btn" onClick={handleClick}>
-          <ArrowPathIcon className="size-6" />
-        </button>
+        <AsyncButton
+          action={handleClick}
+          icon={<ArrowPathIcon className="size-6" />}
+        ></AsyncButton>
         <Link href={pathname + "/create"} className="btn">
           <PlusIcon className="size-6" />
         </Link>

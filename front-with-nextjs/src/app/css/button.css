@@ -4,6 +4,7 @@
   @apply hover:bg-jlg-100 hover:border-jlg-100;
   @apply active:bg-jlg-200 active:border-jlg-200;
   @apply inline-flex items-center justify-center gap-2;
+  @apply disabled:bg-jlg-50 disabled:cursor-not-allowed;
 }
 
 @utility btn-primary {
