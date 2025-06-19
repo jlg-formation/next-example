@@ -1,5 +1,6 @@
 "use client";
 
+import { Article } from "@/interfaces/Article";
 import {
   ArrowPathIcon,
   PlusIcon,
@@ -9,9 +10,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
+const articleList: Article[] = [
+  { id: "a1", name: "Tournevis", price: 2.34, qty: 123 },
+  { id: "a2", name: "Pelle", price: 5, qty: 46 },
+];
+
 export default function ArticleManager() {
   const [errorMsg] = useState("");
   // const [selectedArticles, setselectedArticles] = useState(new Set());
+  const [articles] = useState(articleList);
 
   const pathname = usePathname();
   return (
@@ -37,26 +44,15 @@ export default function ArticleManager() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td className="name">Tournevis</td>
-            <td className="price">3.99 €</td>
-            <td className="qty">123</td>
-          </tr>
-          <tr>
-            <td className="name">Tournevis</td>
-            <td className="price">3.99 €</td>
-            <td className="qty">123</td>
-          </tr>
-          <tr>
-            <td className="name">Tournevis</td>
-            <td className="price">3.99 €</td>
-            <td className="qty">123</td>
-          </tr>
-          <tr>
-            <td className="name">Tournevis</td>
-            <td className="price">3.99 €</td>
-            <td className="qty">123</td>
-          </tr>
+          {articles.map((a) => {
+            return (
+              <tr key={a.id}>
+                <td className="name">{a.name}</td>
+                <td className="price">{a.price} €</td>
+                <td className="qty">{a.qty}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
