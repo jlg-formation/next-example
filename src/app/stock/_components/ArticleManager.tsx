@@ -10,8 +10,8 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 export default function ArticleManager() {
-  const [errorMsg, setErrorMsg] = useState("");
-  const [selectedArticles, setselectedArticles] = useState(new Set());
+  const [errorMsg] = useState("");
+  // const [selectedArticles, setselectedArticles] = useState(new Set());
 
   const pathname = usePathname();
   return (

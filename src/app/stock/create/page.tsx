@@ -3,7 +3,7 @@ import { PlusIcon } from "@heroicons/react/24/solid";
 export default function StockCreate() {
   return (
     <main className="main">
-      <h1 className="title">Ajout d'un article</h1>
+      <h1 className="title">Ajout d&apos;un article</h1>
       <form className="form">
         <label>
           <span>Nom</span>
