@@ -1,14 +1,11 @@
 import { Article } from "@/interfaces/Article";
 import ArticleManager from "./_components/ArticleManager";
-import { sleep } from "@/utils/sleep";
 
-const articles: Article[] = [
-  { id: "a1", name: "Tournevis", price: 2.34, qty: 123 },
-  { id: "a2", name: "Pelle", price: 5, qty: 46 },
-];
+const url = "http://localhost:3333/api/articles";
 
 const getArticles = async () => {
-  await sleep(2000);
+  const response = await fetch(url);
+  const articles: Article[] = await response.json();
   return articles;
 };
 

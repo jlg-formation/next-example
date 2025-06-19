@@ -1,6 +1,8 @@
 import { Router, type Request, type Response, json } from "express";
 import type { Article, NewArticle } from "./interfaces/article";
 
+const sleep = (delay: number) => new Promise((r) => setTimeout(r, delay));
+
 export const generateId = (): string => {
   return Date.now() + "_" + Math.round(Math.random() * 1e12);
 };
@@ -18,7 +20,8 @@ const date = (req: Request, res: Response) => {
 
 app.get("/date", date);
 
-app.get("/articles", (req, res) => {
+app.get("/articles", async (req, res) => {
+  await sleep(2000);
   res.json(articles);
 });
 
