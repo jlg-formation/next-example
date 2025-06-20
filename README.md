@@ -15,3 +15,5 @@ This app has :
 
 - What are the market solution to deploy for free this app without a lot of
   change in the code, at least for demo purpose ?
+- See the [deployment on VPS](./docs/deploiement-nextjs-nginx.md) document.
+
