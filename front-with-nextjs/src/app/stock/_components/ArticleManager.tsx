@@ -22,7 +22,7 @@ export default function ArticleManager({
 
   const pathname = usePathname();
 
-  const handleClick = async () => {
+  const handleRefresh = async () => {
     const articles = await getArticles();
     setArticles(articles);
   };
@@ -31,7 +31,8 @@ export default function ArticleManager({
     <div>
       <nav className="flex gap-1">
         <AsyncButton
-          action={handleClick}
+          title="Refresh"
+          action={handleRefresh}
           icon={<ArrowPathIcon className="size-6" />}
         ></AsyncButton>
         <Link href={pathname + "/create"} className="btn">

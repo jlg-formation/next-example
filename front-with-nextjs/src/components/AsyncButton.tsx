@@ -5,9 +5,10 @@ type Props = {
   action: () => Promise<void>;
   children?: ReactNode;
   icon: ReactNode;
+  title?: string;
 };
 
-export default function AsyncButton({ children, action, icon }: Props) {
+export default function AsyncButton({ children, action, icon, title }: Props) {
   const [isPending, setIsPending] = useState(false);
   const handleAction = async () => {
     try {
@@ -21,7 +22,12 @@ export default function AsyncButton({ children, action, icon }: Props) {
     }
   };
   return (
-    <button className="btn" onClick={handleAction} disabled={isPending}>
+    <button
+      title={title}
+      className="btn"
+      onClick={handleAction}
+      disabled={isPending}
+    >
       {isPending ? <LoadingCircle /> : icon}
       {children}
     </button>
