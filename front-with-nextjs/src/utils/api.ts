@@ -1,9 +1,14 @@
+"use server";
+
 import { Article, NewArticle } from "@/interfaces/Article";
 
 const url = "http://localhost:3333/api/articles";
 
 export const getArticles = async () => {
-  const response = await fetch(url);
+  console.log(`getArticles from ${url}`);
+  const response = await fetch(url, {
+    cache: "no-store",
+  });
   const articles: Article[] = await response.json();
   return articles;
 };
