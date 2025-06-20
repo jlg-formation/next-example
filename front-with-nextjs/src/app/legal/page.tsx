@@ -9,5 +9,5 @@ export default function Legal() {
         quidem nemo deserunt!
       </p>
     </main>
-  );
+  )
 }

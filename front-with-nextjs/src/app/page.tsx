@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { ChevronRightIcon } from "@heroicons/react/24/solid";
+import Link from "next/link"
+import { ChevronRightIcon } from "@heroicons/react/24/solid"
 
 export default function Home() {
   return (
@@ -12,5 +12,5 @@ export default function Home() {
         <ChevronRightIcon className="size-6 " />
       </Link>
     </main>
-  );
+  )
 }

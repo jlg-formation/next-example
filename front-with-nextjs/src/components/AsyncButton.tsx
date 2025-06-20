@@ -1,13 +1,13 @@
-import { ReactNode, useState, MouseEvent } from "react";
-import LoadingCircle from "./LoadingCircle";
+import { ReactNode, useState, MouseEvent } from "react"
+import LoadingCircle from "./LoadingCircle"
 
 type Props = {
-  action: () => Promise<void>;
-  children?: ReactNode;
-  icon: ReactNode;
-  title?: string;
-  className?: string;
-};
+  action: () => Promise<void>
+  children?: ReactNode
+  icon: ReactNode
+  title?: string
+  className?: string
+}
 
 export default function AsyncButton({
   children,
@@ -16,22 +16,22 @@ export default function AsyncButton({
   title,
   className,
 }: Props) {
-  const [isPending, setIsPending] = useState(false);
+  const [isPending, setIsPending] = useState(false)
   const handleAction = async (
-    event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+    event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
   ) => {
-    event.preventDefault();
+    event.preventDefault()
 
     try {
-      setIsPending(true);
-      await action();
+      setIsPending(true)
+      await action()
     } catch (err) {
-      console.log("err: ", err);
-      throw err;
+      console.log("err: ", err)
+      throw err
     } finally {
-      setIsPending(false);
+      setIsPending(false)
     }
-  };
+  }
 
   return (
     <button
@@ -43,5 +43,5 @@ export default function AsyncButton({
       {isPending ? <LoadingCircle /> : icon}
       {children}
     </button>
-  );
+  )
 }

@@ -24,5 +24,5 @@ export default function LoadingCircle() {
         strokeDasharray="10,90"
       ></circle>
     </svg>
-  );
+  )
 }

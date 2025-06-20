@@ -1,4 +1,4 @@
-import LoadingCircle from "@/components/LoadingCircle";
+import LoadingCircle from "@/components/LoadingCircle"
 
 export default function LoadingStock() {
   return (
@@ -6,5 +6,5 @@ export default function LoadingStock() {
       <h1 className="title">Chargement des articles</h1>
       <LoadingCircle />
     </main>
-  );
+  )
 }

@@ -1,22 +1,22 @@
-import type { Metadata } from "next";
-import { Geist } from "next/font/google";
-import Image from "next/image";
-import "./globals.css";
-import Link from "next/link";
+import type { Metadata } from "next"
+import { Geist } from "next/font/google"
+import Image from "next/image"
+import "./globals.css"
+import Link from "next/link"
 
 const geist = Geist({
   subsets: ["latin"],
-});
+})
 
 export const metadata: Metadata = {
   title: "Gestion Stock",
   description: "Gestion efficace de votre stock",
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="fr">
@@ -47,5 +47,5 @@ export default function RootLayout({
         </div>
       </body>
     </html>
-  );
+  )
 }

@@ -1,4 +1,4 @@
-import AddArticleForm from "../_components/AddArticleForm";
+import AddArticleForm from "../_components/AddArticleForm"
 
 export default function StockCreate() {
   return (
@@ -6,5 +6,5 @@ export default function StockCreate() {
       <h1 className="title">Ajout d&apos;un article</h1>
       <AddArticleForm />
     </main>
-  );
+  )
 }

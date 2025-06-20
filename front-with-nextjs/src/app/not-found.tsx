@@ -1,5 +1,5 @@
-import { HomeIcon } from "@heroicons/react/24/solid";
-import Link from "next/link";
+import { HomeIcon } from "@heroicons/react/24/solid"
+import Link from "next/link"
 
 export default function NotFound() {
   return (
@@ -12,5 +12,5 @@ export default function NotFound() {
         <span>Accueil</span>
       </Link>
     </main>
-  );
+  )
 }

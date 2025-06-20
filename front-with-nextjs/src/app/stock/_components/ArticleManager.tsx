@@ -1,47 +1,43 @@
-"use client";
+"use client"
 
-import AsyncButton from "@/components/AsyncButton";
-import { Article } from "@/interfaces/Article";
-import { getArticles, removeArticles } from "@/utils/api";
-import {
-  ArrowPathIcon,
-  PlusIcon,
-  TrashIcon,
-} from "@heroicons/react/24/outline";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+import AsyncButton from "@/components/AsyncButton"
+import { Article } from "@/interfaces/Article"
+import { getArticles, removeArticles } from "@/utils/api"
+import { ArrowPathIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/outline"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { useState } from "react"
 
 export default function ArticleManager({
   initialArticles,
 }: {
-  initialArticles: Article[];
+  initialArticles: Article[]
 }) {
-  const [errorMsg] = useState("");
-  const [articles, setArticles] = useState(initialArticles);
+  const [errorMsg] = useState("")
+  const [articles, setArticles] = useState(initialArticles)
   const [selectedArticles, setSelectedArticles] = useState(
-    new Set<Article["id"]>()
-  );
+    new Set<Article["id"]>(),
+  )
 
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   const handleRefresh = async () => {
-    const articles = await getArticles();
-    setArticles(articles);
-  };
+    const articles = await getArticles()
+    setArticles(articles)
+  }
 
   const handleRemove = async () => {
-    await removeArticles(selectedArticles);
-    const articles = await getArticles();
-    setArticles(articles);
-    setSelectedArticles(new Set());
-  };
+    await removeArticles(selectedArticles)
+    const articles = await getArticles()
+    setArticles(articles)
+    setSelectedArticles(new Set())
+  }
 
   const handleSelect = (id: Article["id"]) => {
-    const set = new Set(selectedArticles);
-    setSelectedArticles(set);
-    set.has(id) ? set.delete(id) : set.add(id);
-  };
+    const set = new Set(selectedArticles)
+    setSelectedArticles(set)
+    set.has(id) ? set.delete(id) : set.add(id)
+  }
 
   return (
     <div>
@@ -83,10 +79,10 @@ export default function ArticleManager({
                 <td className="price">{a.price} €</td>
                 <td className="qty">{a.qty}</td>
               </tr>
-            );
+            )
           })}
         </tbody>
       </table>
     </div>
-  );
+  )
 }
