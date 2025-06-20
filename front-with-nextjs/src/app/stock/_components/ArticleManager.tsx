@@ -3,6 +3,7 @@
 import AsyncButton from "@/components/AsyncButton";
 import { Article } from "@/interfaces/Article";
 import { getArticles } from "@/utils/api";
+import { sleep } from "@/utils/sleep";
 import {
   ArrowPathIcon,
   PlusIcon,
@@ -19,6 +20,7 @@ export default function ArticleManager({
 }) {
   const [errorMsg] = useState("");
   const [articles, setArticles] = useState(initialArticles);
+  const [selectedArticles, setSelectedArticles] = useState(new Set());
 
   const pathname = usePathname();
 
@@ -27,20 +29,36 @@ export default function ArticleManager({
     setArticles(articles);
   };
 
+  const handleRemove = async () => {
+    await sleep(1000);
+  };
+
+  const handleSelect = (a: Article) => {
+    const set = new Set(selectedArticles);
+    setSelectedArticles(set);
+    if (set.has(a)) {
+      set.delete(a);
+      return;
+    }
+    set.add(a);
+  };
+
   return (
     <div>
       <nav className="flex gap-1">
         <AsyncButton
-          title="Refresh"
+          title="Rafraîchir"
           action={handleRefresh}
           icon={<ArrowPathIcon className="size-6" />}
         ></AsyncButton>
-        <Link href={pathname + "/create"} className="btn">
+        <Link title="Ajouter" href={pathname + "/create"} className="btn">
           <PlusIcon className="size-6" />
         </Link>
-        <button className="btn">
-          <TrashIcon className="size-6" />
-        </button>
+        <AsyncButton
+          title="Supprimer"
+          action={handleRemove}
+          icon={<TrashIcon className="size-6" />}
+        ></AsyncButton>
       </nav>
       <div className="h-8 font-bold flex items-center">{errorMsg}</div>
       <table className="table">
@@ -54,7 +72,11 @@ export default function ArticleManager({
         <tbody>
           {articles.map((a) => {
             return (
-              <tr key={a.id}>
+              <tr
+                key={a.id}
+                className={selectedArticles.has(a) ? "selected" : ""}
+                onClick={() => handleSelect(a)}
+              >
                 <td className="name">{a.name}</td>
                 <td className="price">{a.price} €</td>
                 <td className="qty">{a.qty}</td>
