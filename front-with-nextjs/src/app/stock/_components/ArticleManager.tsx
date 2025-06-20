@@ -50,11 +50,13 @@ export default function ArticleManager({
         <Link title="Ajouter" href={pathname + "/create"} className="btn">
           <PlusIcon className="size-6" />
         </Link>
-        <AsyncButton
-          title="Supprimer"
-          action={handleRemove}
-          icon={<TrashIcon className="size-6" />}
-        ></AsyncButton>
+        {selectedArticles.size > 0 && (
+          <AsyncButton
+            title="Supprimer"
+            action={handleRemove}
+            icon={<TrashIcon className="size-6" />}
+          ></AsyncButton>
+        )}
       </nav>
       <div className="h-8 font-bold flex items-center">{errorMsg}</div>
       <table className="table">
