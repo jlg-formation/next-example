@@ -2,6 +2,7 @@
 import { NewArticle } from "@/interfaces/Article";
 import { addArticle } from "@/utils/api";
 import { PlusIcon } from "@heroicons/react/24/solid";
+import { useRouter } from "next/navigation";
 import { FormEvent, useMemo, useState } from "react";
 
 export default function AddArticleForm() {
@@ -10,6 +11,8 @@ export default function AddArticleForm() {
   const [qty, setQty] = useState("1");
 
   const [errorMsg, setErrorMsg] = useState("");
+
+  const router = useRouter();
 
   const nameErrorMsg = useMemo(() => {
     console.log("compute nameErrorMsg");
@@ -52,6 +55,7 @@ export default function AddArticleForm() {
       };
 
       await addArticle(newArticle);
+      router.push("/stock");
     } catch (err) {
       console.log("err: ", err);
     }
