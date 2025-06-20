@@ -17,3 +17,14 @@ export const addArticle = async (newArticle: NewArticle) => {
     body: JSON.stringify(newArticle),
   });
 };
+
+export const removeArticles = async (ids: Set<Article["id"]>) => {
+  console.log("ids: ", ids);
+  await fetch(url, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify([...ids]),
+  });
+};

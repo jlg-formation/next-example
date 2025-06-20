@@ -2,8 +2,7 @@
 
 import AsyncButton from "@/components/AsyncButton";
 import { Article } from "@/interfaces/Article";
-import { getArticles } from "@/utils/api";
-import { sleep } from "@/utils/sleep";
+import { getArticles, removeArticles } from "@/utils/api";
 import {
   ArrowPathIcon,
   PlusIcon,
@@ -20,7 +19,9 @@ export default function ArticleManager({
 }) {
   const [errorMsg] = useState("");
   const [articles, setArticles] = useState(initialArticles);
-  const [selectedArticles, setSelectedArticles] = useState(new Set());
+  const [selectedArticles, setSelectedArticles] = useState(
+    new Set<Article["id"]>()
+  );
 
   const pathname = usePathname();
 
@@ -30,13 +31,16 @@ export default function ArticleManager({
   };
 
   const handleRemove = async () => {
-    await sleep(1000);
+    await removeArticles(selectedArticles);
+    const articles = await getArticles();
+    setArticles(articles);
+    setSelectedArticles(new Set());
   };
 
-  const handleSelect = (a: Article) => {
+  const handleSelect = (id: Article["id"]) => {
     const set = new Set(selectedArticles);
     setSelectedArticles(set);
-    set.has(a) ? set.delete(a) : set.add(a);
+    set.has(id) ? set.delete(id) : set.add(id);
   };
 
   return (
@@ -72,8 +76,8 @@ export default function ArticleManager({
             return (
               <tr
                 key={a.id}
-                className={selectedArticles.has(a) ? "selected" : ""}
-                onClick={() => handleSelect(a)}
+                className={selectedArticles.has(a.id) ? "selected" : ""}
+                onClick={() => handleSelect(a.id)}
               >
                 <td className="name">{a.name}</td>
                 <td className="price">{a.price} €</td>
