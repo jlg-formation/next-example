@@ -1,4 +1,6 @@
 "use client";
+import { NewArticle } from "@/interfaces/Article";
+import { addArticle } from "@/utils/api";
 import { PlusIcon } from "@heroicons/react/24/solid";
 import { FormEvent, useMemo, useState } from "react";
 
@@ -34,14 +36,27 @@ export default function AddArticleForm() {
   }, [qty]);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log("submit");
-    console.log("name: ", name);
-    if (name === "bad") {
-      setErrorMsg('Un article ne peut pas avoir "bad" pour nom.');
-      return;
+    try {
+      event.preventDefault();
+      console.log("submit");
+      console.log("name: ", name);
+      if (name === "bad") {
+        setErrorMsg('Un article ne peut pas avoir "bad" pour nom.');
+        return;
+      }
+
+      const newArticle: NewArticle = {
+        name: name,
+        price: parseFloat(price),
+        qty: parseInt(qty, 10),
+      };
+
+      await addArticle(newArticle);
+    } catch (err) {
+      console.log("err: ", err);
     }
   };
+
   return (
     <form className="form" onSubmit={handleSubmit}>
       <label>
