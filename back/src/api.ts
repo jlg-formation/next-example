@@ -20,8 +20,12 @@ const date = (req: Request, res: Response) => {
 
 app.get("/date", date);
 
+app.use(async (req, res, next) => {
+  await sleep(1000);
+  next();
+});
+
 app.get("/articles", async (req, res) => {
-  await sleep(2000);
   res.json(articles);
 });
 
