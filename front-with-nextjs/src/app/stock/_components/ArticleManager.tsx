@@ -36,11 +36,7 @@ export default function ArticleManager({
   const handleSelect = (a: Article) => {
     const set = new Set(selectedArticles);
     setSelectedArticles(set);
-    if (set.has(a)) {
-      set.delete(a);
-      return;
-    }
-    set.add(a);
+    set.has(a) ? set.delete(a) : set.add(a);
   };
 
   return (
