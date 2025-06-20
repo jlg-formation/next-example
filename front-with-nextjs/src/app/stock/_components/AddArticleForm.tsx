@@ -1,9 +1,10 @@
 "use client";
+import AsyncButton from "@/components/AsyncButton";
 import { NewArticle } from "@/interfaces/Article";
 import { addArticle } from "@/utils/api";
 import { PlusIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation";
-import { FormEvent, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 export default function AddArticleForm() {
   const [name, setName] = useState("Truc");
@@ -38,9 +39,8 @@ export default function AddArticleForm() {
     return "";
   }, [qty]);
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async () => {
     try {
-      event.preventDefault();
       console.log("submit");
       console.log("name: ", name);
       if (name === "bad") {
@@ -62,7 +62,7 @@ export default function AddArticleForm() {
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className="form">
       <label>
         <span>Nom</span>
         <input
@@ -94,10 +94,13 @@ export default function AddArticleForm() {
         {errorMsg}
       </div>
       <div className=" flex flex-col">
-        <button className="btn btn-primary">
-          <PlusIcon className="size-6" />
-          <span>Ajouter</span>
-        </button>
+        <AsyncButton
+          className="btn btn-primary"
+          action={handleSubmit}
+          icon={<PlusIcon className="size-6" />}
+        >
+          Ajouter
+        </AsyncButton>
       </div>
     </form>
   );
