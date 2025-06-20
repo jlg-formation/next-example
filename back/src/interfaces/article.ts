@@ -5,4 +5,4 @@ export interface Article {
   qty: number
 }
 
-export type NewArticle = Omit<Article, 'id'>
+export type NewArticle = Omit<Article, "id">

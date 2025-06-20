@@ -4,7 +4,8 @@
   "type": "module",
   "private": true,
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "prettier": "^3.5.3"
   },
   "peerDependencies": {
     "typescript": "^5"
@@ -16,7 +17,8 @@
     "serve-index": "^1.9.1"
   },
   "scripts": {
-    "dev": "bun --watch src/server.ts"
+    "dev": "bun --watch src/server.ts",
+    "format": "prettier -w ."
   },
   "packageManager": "bun@1.2.16"
 }
