@@ -1,20 +1,16 @@
 "use client"
 
 import AsyncButton from "@/components/AsyncButton"
+import { useArticles } from "@/contexts/ArticleContext"
 import { Article } from "@/interfaces/Article"
-import { getArticles, removeArticles } from "@/utils/api"
 import { ArrowPathIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/outline"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
 
-export default function ArticleManager({
-  initialArticles,
-}: {
-  initialArticles: Article[]
-}) {
+export default function ArticleManager() {
   const [errorMsg] = useState("")
-  const [articles, setArticles] = useState(initialArticles)
+  const { articles, loading, error, reload, remove } = useArticles()
   const [selectedArticles, setSelectedArticles] = useState(
     new Set<Article["id"]>(),
   )
@@ -22,14 +18,12 @@ export default function ArticleManager({
   const pathname = usePathname()
 
   const handleRefresh = async () => {
-    const articles = await getArticles()
-    setArticles(articles)
+    await reload()
   }
 
   const handleRemove = async () => {
-    await removeArticles(selectedArticles)
-    const articles = await getArticles()
-    setArticles(articles)
+    await remove(selectedArticles)
+    await reload()
     setSelectedArticles(new Set())
   }
 
@@ -68,19 +62,29 @@ export default function ArticleManager({
           </tr>
         </thead>
         <tbody>
-          {articles.map((a) => {
-            return (
-              <tr
-                key={a.id}
-                className={selectedArticles.has(a.id) ? "selected" : ""}
-                onClick={() => handleSelect(a.id)}
-              >
-                <td className="name">{a.name}</td>
-                <td className="price">{a.price} €</td>
-                <td className="qty">{a.qty}</td>
-              </tr>
-            )
-          })}
+          {articles ? (
+            articles.map((a) => {
+              return (
+                <tr
+                  key={a.id}
+                  className={selectedArticles.has(a.id) ? "selected" : ""}
+                  onClick={() => handleSelect(a.id)}
+                >
+                  <td className="name">{a.name}</td>
+                  <td className="price">{a.price} €</td>
+                  <td className="qty">{a.qty}</td>
+                </tr>
+              )
+            })
+          ) : loading ? (
+            <tr>
+              <td colSpan={3}>Loading...</td>
+            </tr>
+          ) : (
+            <tr>
+              <td colSpan={3}>Error: {error}</td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>

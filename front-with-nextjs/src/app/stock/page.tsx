@@ -1,4 +1,4 @@
-import { getArticles } from "@/utils/api"
+import { ArticleProvider } from "@/contexts/ArticleContext"
 import ArticleManager from "./_components/ArticleManager"
 
 export default async function Stock() {
@@ -6,7 +6,9 @@ export default async function Stock() {
   return (
     <main className="main">
       <h1 className="title">Liste des articles</h1>
-      <ArticleManager initialArticles={await getArticles()} />
+      <ArticleProvider>
+        <ArticleManager />
+      </ArticleProvider>
     </main>
   )
 }
