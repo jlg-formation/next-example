@@ -1,10 +1,12 @@
-import Chrono from "@/components/Chrono"
+import Chronometer from "@/components/Chronometer"
+import DateTime from "@/components/DateTime"
 
 export default function Legal() {
   return (
     <main className="main">
       <h1 className="title">Mentions Légales</h1>
-      <Chrono />
+      <DateTime />
+      <Chronometer />
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae,
         quas necessitatibus. Nostrum tempora aperiam sunt ipsum quibusdam
