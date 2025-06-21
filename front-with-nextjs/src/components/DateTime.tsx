@@ -3,9 +3,9 @@ import { formatDate } from "@/utils/date"
 import { useEffect, useMemo, useState } from "react"
 
 export default function DateTime() {
-  const [dateTime, setDateTime] = useState(new Date())
+  const [dateTime, setDateTime] = useState<Date | undefined>(undefined)
   const dateTimeStr = useMemo(() => {
-    return formatDate(dateTime)
+    return dateTime ? formatDate(dateTime) : ""
   }, [dateTime])
 
   useEffect(() => {

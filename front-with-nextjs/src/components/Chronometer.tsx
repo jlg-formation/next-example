@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useRef, useState } from "react"
+import Button from "./Button"
 
 export default function DateTime() {
   const [counter, setCounter] = useState(0)
@@ -32,9 +33,9 @@ export default function DateTime() {
   return (
     <>
       <p>Chrono : {counter}</p>
-      <button className="btn w-24" onClick={handleClick}>
+      <Button className="w-48" onClick={handleClick}>
         {running ? "Stop" : "Start"}
-      </button>
+      </Button>
     </>
   )
 }

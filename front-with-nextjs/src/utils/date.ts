@@ -1,5 +1,5 @@
 export function formatDate(date: Date) {
-  const pad = (n) => n.toString().padStart(2, "0")
+  const pad = (n: number) => n.toString().padStart(2, "0")
 
   const year = date.getFullYear()
   const month = pad(date.getMonth() + 1) // Mois = 0-11
